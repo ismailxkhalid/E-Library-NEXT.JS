@@ -4,16 +4,17 @@ import React from "react";
 const Footer = () => {
   return (
     <footer className="border-t p-5 text-center">
+      <span>© 2024 DIGITAL DREAMSHELF All rights reserved.</span>
+      <br />
       <span>
-        © 2024{" "}
+        Made with 💛 by{" "}
         <a
-          className="text-primary-500 font-semibold hover:underline hover:text-primary-300"
-          target="_blank"
+          className="font-bold hover:underline hover:text-slate-500"
           href="https://www.ismailxkhalid.com"
+          target="_blank"
         >
           Ismail Khalid
         </a>{" "}
-        All rights reserved.
       </span>
     </footer>
   );

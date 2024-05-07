@@ -1,19 +1,15 @@
 import Banner from "@/app/(home)/components/Banner";
+import Skeleton from "@/app/(home)/components/Skeleton";
 import BookList from "./components/BookList";
+import { Suspense } from "react";
 
-export default async function Home() {
-  // Data fetching from an external API or database
-  const response = await fetch(`${process.env.BACKEND_URL}/books`);
-  if (!response.ok) {
-    throw new Error("Failed to fetch books data");
-  }
-
-  const books = await response.json();
-
+export default function Home() {
   return (
     <>
       <Banner />
-      <BookList books={books} />
+      <Suspense fallback={<Skeleton />}>
+        <BookList />
+      </Suspense>
     </>
   );
 }
