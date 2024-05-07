@@ -2,13 +2,21 @@ import React from "react";
 import Image from "next/image";
 import { Book } from "@/types";
 import DownloadButton from "./components/DownloadButton";
+import next from "next";
 
 const SingleBookPage = async ({ params }: { params: { bookId: string } }) => {
   console.log("params", params);
   let book: Book | null = null;
   try {
     const response = await fetch(
-      `${process.env.BACKEND_URL}/books/${params.bookId}`
+      `${process.env.BACKEND_URL}/books/${
+        (params.bookId,
+        {
+          next: {
+            revalidate: 3600,
+          },
+        })
+      }`
     );
     if (!response.ok) {
       throw new Error("Error fetching book");

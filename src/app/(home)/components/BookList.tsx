@@ -4,7 +4,9 @@ import BookCard from "./BookCard";
 
 const BookList = async () => {
   // Data fetching from an external API or database
-  const response = await fetch(`${process.env.BACKEND_URL}/books`);
+  const response = await fetch(`${process.env.BACKEND_URL}/books`, {
+    cache: "no-store",
+  });
   if (!response.ok) {
     throw new Error("Failed to fetch books data");
   }
