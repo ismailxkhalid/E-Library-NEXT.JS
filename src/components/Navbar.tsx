@@ -4,7 +4,7 @@ import React from "react";
 const Navbar = () => {
   return (
     <nav className="border-b">
-      <div className="max-w-7xl mx-auto flex items-center justify-between py-4 ">
+      <div className="max-w-6xl mx-auto flex items-center justify-between py-4 ">
         <div>
           <Link href={"/"}>
             <div className="flex items-center gap-1">
@@ -12,9 +12,7 @@ const Navbar = () => {
                 <Hexagon />
                 <BookIcon />
               </div>
-              <span className="text-xl font-bold uppercase tracking-tight text-primary-500 ">
-                Digital Dreamshelf
-              </span>
+              <span className="text-xl font-bold tracking-tight ">ZenBook</span>
             </div>
           </Link>
         </div>

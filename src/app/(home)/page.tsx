@@ -6,10 +6,12 @@ import { Suspense } from "react";
 export default function Home() {
   return (
     <>
-      <Banner />
-      <Suspense fallback={<Skeleton />}>
-        <BookList />
-      </Suspense>
+      <div className="mx-auto max-w-6xl">
+        <Banner />
+        <Suspense fallback={<Skeleton />}>
+          <BookList />
+        </Suspense>
+      </div>
     </>
   );
 }

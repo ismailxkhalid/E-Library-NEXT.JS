@@ -4,7 +4,7 @@ import React from "react";
 const Footer = () => {
   return (
     <footer className="border-t p-5 text-center">
-      <span>© 2024 DIGITAL DREAMSHELF All rights reserved.</span>
+      <span>© 2024 ZenBook All rights reserved.</span>
       <br />
       <span>
         Made with 💛 by{" "}

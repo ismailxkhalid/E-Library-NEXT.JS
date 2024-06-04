@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Banner = () => {
   return (
-    <div className="mx-auto max-w-7xl py-10">
+    <div className="mx-auto max-w-6xl py-10">
       <div className="relative">
         <Image
           src={"/paper-bg.jpg"}
@@ -23,8 +23,9 @@ const Banner = () => {
           sizes="100vw"
           style={{ width: "auto", height: "18rem" }}
         />
-        <h3 className="absolute left-10 top-1/2 w-full max-w-3xl -translate-y-1/2 text-5xl font-semibold tracking-tight text-white">
-          Connect, Share and Trade Your Favourite Reads...
+        <h3 className="absolute left-10 top-1/2 w-full max-w-3xl -translate-y-1/2 text-5xl font-semibold tracking-tight text-white ">
+          Connect, Share and Trade Your Favourite Reads{" "}
+          <span className="animate-pulse">...</span>
         </h3>
       </div>
     </div>

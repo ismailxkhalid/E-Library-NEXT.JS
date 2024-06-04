@@ -2,21 +2,16 @@ import React from "react";
 import Image from "next/image";
 import { Book } from "@/types";
 import DownloadButton from "./components/DownloadButton";
-import next from "next";
 
 const SingleBookPage = async ({ params }: { params: { bookId: string } }) => {
   console.log("params", params);
   let book: Book | null = null;
   try {
     const response = await fetch(
-      `${process.env.BACKEND_URL}/books/${
-        (params.bookId,
-        {
-          next: {
-            revalidate: 3600,
-          },
-        })
-      }`
+      `${process.env.BACKEND_URL}/books/${params.bookId}`,
+      {
+        next: { revalidate: 3600 },
+      }
     );
     if (!response.ok) {
       throw new Error("Error fetching book");
@@ -33,12 +28,24 @@ const SingleBookPage = async ({ params }: { params: { bookId: string } }) => {
   return (
     <div className="mx-auto grid max-w-6xl grid-cols-3 gap-10 px-5 py-10">
       <div className="col-span-2 pr-16 text-primary-950">
-        <h2 className="mb-5 text-5xl font-bold leading-[1.1]">{book.title}</h2>
+        <h2 className="mb-5 text-5xl font-bold leading-[1.1] uppercase">
+          {book.title}
+        </h2>
         <span className="font-semibold">
           by{" "}
           <span className="text-primary-500 italic"> {book.author.name} </span>
         </span>
-        <p className="mt-5 text-lg leading-8">{book.description}</p>
+        <p className="mt-5 text-lg leading-8">
+          This is a demo description for a demo ebook in my e-library. This
+          ebook contains a demo PDF for illustrative purposes. It is part of a
+          full stack project that includes a robust dashboard and backend,
+          utilizing the latest technologies in web development. Explore the
+          features and capabilities of this cutting-edge project, designed to
+          provide a seamless and efficient user experience. Perfect for
+          developers and tech enthusiasts, this demo showcases the integration
+          of modern tools and practices in building comprehensive digital
+          solutions.
+        </p>
         <DownloadButton fileLink={book.file} />
       </div>
       <div className="flex justify-end">
